@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "369235753961",
+    "project_id": "btech-vision-8375a",
+    "storage_bucket": "btech-vision-8375a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369235753961:android:7afdc5c3f11a5824af6978",
+        "android_client_info": {
+          "package_name": "com.example.btech_vision"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmEfw4gbn7W6wSBxMSrK0cqJP-KeMBxeE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
