@@ -18,7 +18,6 @@ Future main() async {
         appId: "1:369235753961:android:7afdc5c3f11a5824af6978",
         messagingSenderId: "369235753961",
         projectId: "btech-vision-8375a",
-        // Your web Firebase config options.
       ),
     );
   } else {

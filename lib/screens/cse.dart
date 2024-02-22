@@ -1,7 +1,10 @@
 import 'package:btech_vision/main.dart';
-import 'package:btech_vision/pdf_Screens/pdf_firebase.dart';
 import 'package:btech_vision/quiz.dart';
+import 'package:btech_vision/screens/Books.dart';
 import 'package:btech_vision/screens/Lectures.dart';
+import 'package:btech_vision/screens/Notes.dart';
+import 'package:btech_vision/screens/Syllabus.dart';
+import 'package:btech_vision/screens/assignment_page.dart';
 import 'package:btech_vision/screens/home_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +39,7 @@ class cse extends StatelessWidget {
                       // Navigator.pop(context);
                     },
                     child: Icon(CupertinoIcons.back)),
-                title: Text("CSE Docs Category"),
+                title: Text("Docs Category"),
               ),
               body: Column(
                 children: [
@@ -46,32 +49,38 @@ class cse extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Container(
-                        width: 150,
-                        height: 150,
-                        decoration: BoxDecoration(
-                            color: Color.fromARGB(221, 65, 64, 64),
-                            borderRadius: BorderRadius.circular(20),
-                            border: Border.all(color: Colors.blue, width: 5)),
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: 5,
-                            ),
-                            SizedBox(
-                              width: 85,
-                              child: Image.asset("assets/images/open.png",
-                                  color: Color.fromARGB(255, 166, 11, 11)),
-                            ),
-                            SizedBox(
-                              height: 15,
-                            ),
-                            Text(
-                              "Syllabus",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 25),
-                            )
-                          ],
+                      InkWell(
+                        onTap: () {
+                          Navigator.pushReplacement(context,
+                              MaterialPageRoute(builder: (_) => syllabus()));
+                        },
+                        child: Container(
+                          width: 150,
+                          height: 150,
+                          decoration: BoxDecoration(
+                              color: Color.fromARGB(221, 65, 64, 64),
+                              borderRadius: BorderRadius.circular(20),
+                              border: Border.all(color: Colors.blue, width: 5)),
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                height: 5,
+                              ),
+                              SizedBox(
+                                width: 85,
+                                child: Image.asset("assets/images/open.png",
+                                    color: Color.fromARGB(255, 166, 11, 11)),
+                              ),
+                              SizedBox(
+                                height: 15,
+                              ),
+                              Text(
+                                "Syllabus",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 25),
+                              )
+                            ],
+                          ),
                         ),
                       ),
                       InkWell(
@@ -118,40 +127,46 @@ class cse extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Container(
-                        width: 150,
-                        height: 150,
-                        decoration: BoxDecoration(
-                            color: Color.fromARGB(221, 65, 64, 64),
-                            borderRadius: BorderRadius.circular(20),
-                            border: Border.all(color: Colors.blue, width: 5)),
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: 5,
-                            ),
-                            SizedBox(
-                              width: 85,
-                              child: Image.asset(
-                                "assets/images/book.png",
-                                //color: Color.fromARGB(255, 10, 233, 184)
+                      InkWell(
+                        onTap: () {
+                          Navigator.pushReplacement(context,
+                              MaterialPageRoute(builder: (_) => book()));
+                        },
+                        child: Container(
+                          width: 150,
+                          height: 150,
+                          decoration: BoxDecoration(
+                              color: Color.fromARGB(221, 65, 64, 64),
+                              borderRadius: BorderRadius.circular(20),
+                              border: Border.all(color: Colors.blue, width: 5)),
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                height: 5,
                               ),
-                            ),
-                            SizedBox(
-                              height: 15,
-                            ),
-                            Text(
-                              "Books",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 25),
-                            )
-                          ],
+                              SizedBox(
+                                width: 85,
+                                child: Image.asset(
+                                  "assets/images/book.png",
+                                  //color: Color.fromARGB(255, 10, 233, 184)
+                                ),
+                              ),
+                              SizedBox(
+                                height: 15,
+                              ),
+                              Text(
+                                "Books",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 25),
+                              )
+                            ],
+                          ),
                         ),
                       ),
                       InkWell(
                         onTap: () {
                           Navigator.pushReplacement(context,
-                              MaterialPageRoute(builder: (_) => PdfScreen()));
+                              MaterialPageRoute(builder: (_) => notes()));
                         },
                         child: Container(
                           width: 150,
@@ -231,34 +246,42 @@ class cse extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Container(
-                        width: 150,
-                        height: 150,
-                        decoration: BoxDecoration(
-                            color: Color.fromARGB(221, 65, 64, 64),
-                            borderRadius: BorderRadius.circular(20),
-                            border: Border.all(color: Colors.blue, width: 5)),
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: 5,
-                            ),
-                            SizedBox(
-                              width: 85,
-                              child: Image.asset(
-                                "assets/images/assignment.png",
-                                //color: const Color.fromARGB(255, 243, 51, 33),
+                      InkWell(
+                        onTap: () {
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => const assignment()));
+                        },
+                        child: Container(
+                          width: 150,
+                          height: 150,
+                          decoration: BoxDecoration(
+                              color: Color.fromARGB(221, 65, 64, 64),
+                              borderRadius: BorderRadius.circular(20),
+                              border: Border.all(color: Colors.blue, width: 5)),
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                height: 5,
                               ),
-                            ),
-                            SizedBox(
-                              height: 15,
-                            ),
-                            Text(
-                              "Assignments",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 20),
-                            )
-                          ],
+                              SizedBox(
+                                width: 85,
+                                child: Image.asset(
+                                  "assets/images/assignment.png",
+                                  //color: const Color.fromARGB(255, 243, 51, 33),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 15,
+                              ),
+                              Text(
+                                "Assignments",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 20),
+                              )
+                            ],
+                          ),
                         ),
                       )
                     ],

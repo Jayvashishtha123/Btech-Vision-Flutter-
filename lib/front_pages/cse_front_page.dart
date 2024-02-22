@@ -3,19 +3,19 @@ import 'package:btech_vision/screens/home_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_launcher_icons/xml_templates.dart';
-
 import 'package:url_launcher/url_launcher.dart';
 
 class about_cse extends StatelessWidget {
-  about_cse({super.key});
+  const about_cse({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
-      //DeviceOrientation.landscapeRight,
     ]);
+
     Size screenSize = MediaQuery.of(context).size;
+
     return SafeArea(
       child: Scaffold(
         body: Container(
@@ -37,35 +37,42 @@ class about_cse extends StatelessWidget {
                 width: screenSize.width,
                 height: screenSize.height * .3,
                 decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 0, 0, 0),
-                    borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(50),
-                        bottomRight: Radius.circular(50))),
+                  color: Color.fromARGB(255, 0, 0, 0),
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(50),
+                    bottomRight: Radius.circular(50),
+                  ),
+                ),
               ),
               Positioned(
-                  top: 20,
-                  left: screenSize.width * .05,
-                  child: SizedBox(
-                      width: 30,
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.pushReplacement(context,
-                              MaterialPageRoute(builder: (_) => HomeScreen()));
-                        },
-                        child: Image.asset(
-                          "assets/images/back.png",
-                          color: Color.fromARGB(255, 86, 83, 83),
-                        ),
-                      ))),
+                top: 20,
+                left: screenSize.width * .05,
+                child: SizedBox(
+                  width: 30,
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (_) => HomeScreen()),
+                      );
+                    },
+                    child: Image.asset(
+                      "assets/images/back.png",
+                      color: Color.fromARGB(255, 86, 83, 83),
+                    ),
+                  ),
+                ),
+              ),
               Positioned(
                 top: 80,
                 left: screenSize.width * .4,
                 child: Text(
                   "CSE",
                   style: TextStyle(
-                      color: Color.fromARGB(255, 255, 255, 255),
-                      fontSize: 35,
-                      fontWeight: FontWeight.bold),
+                    color: Color.fromARGB(255, 255, 255, 255),
+                    fontSize: 35,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
               Positioned(
@@ -76,8 +83,6 @@ class about_cse extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: TextStyle(color: Colors.white, fontSize: 20),
                   maxLines: 1,
-                  //overflow: TextOverflow.ellipsis,
-                  //softWrap: true,
                 ),
               ),
               Positioned(
@@ -87,7 +92,7 @@ class about_cse extends StatelessWidget {
                   child: Container(
                     width: screenSize.width * .98,
                     child: Text(
-                      'Computer science is the study of computation, information, and automation.Computer science spans theoretical disciplines (such as algorithms, theory of computation, and information theory) to applied disciplines (including the design and implementation of hardware and software).Though more often considered an academic discipline, computer science is closely related to computer programming.',
+                      'Computer science is the study of computation, information, and automation. Computer science spans theoretical disciplines such as algorithms, theory of computation, and information theory to applied disciplines including the design and implementation of hardware and software. Though more often considered an academic discipline, computer science is closely related to computer programming.',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 15,
@@ -101,14 +106,14 @@ class about_cse extends StatelessWidget {
                 top: 420,
                 left: 250,
                 child: InkWell(
-                  onTap: () {
-                    launchURL1();
-                  },
+                  onTap: () => launchURL(
+                      'https://en.wikipedia.org/wiki/Computer_science'),
                   child: Text(
                     "Read more",
                     style: TextStyle(
-                        color: Colors.blue,
-                        decoration: TextDecoration.underline),
+                      color: Colors.blue,
+                      decoration: TextDecoration.underline,
+                    ),
                   ),
                 ),
               ),
@@ -121,20 +126,18 @@ class about_cse extends StatelessWidget {
                     Container(
                       width: screenSize.width * .9,
                       decoration: BoxDecoration(
-                          border: Border.all(
-                              color: const Color.fromARGB(255, 0, 0, 0)),
-                          borderRadius: BorderRadius.only(
-                            //topRight: Radius.circular(30),
-                            bottomRight: Radius.circular(30),
-                            topLeft: Radius.circular(30),
-                            //bottomLeft: Radius.circular(30),
-                          ),
-                          color: Color.fromARGB(255, 187, 185, 185)),
+                        border: Border.all(
+                          color: const Color.fromARGB(255, 0, 0, 0),
+                        ),
+                        borderRadius: BorderRadius.only(
+                          bottomRight: Radius.circular(30),
+                          topLeft: Radius.circular(30),
+                        ),
+                        color: Color.fromARGB(255, 187, 185, 185),
+                      ),
                       child: InkWell(
-                        onTap: () {
-                          Navigator.pushReplacement(context,
-                              MaterialPageRoute(builder: (_) => cse()));
-                        },
+                        onTap: () => Navigator.pushReplacement(
+                            context, MaterialPageRoute(builder: (_) => cse())),
                         child: ListTile(
                           titleAlignment: ListTileTitleAlignment.threeLine,
                           minLeadingWidth: 60,
@@ -148,9 +151,10 @@ class about_cse extends StatelessWidget {
                             child: Text(
                               "Press Here      ",
                               style: TextStyle(
-                                  color: Color.fromARGB(255, 240, 8, 8),
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 25),
+                                color: Color.fromARGB(255, 243, 241, 241),
+                                fontWeight: FontWeight.w400,
+                                fontSize: 25,
+                              ),
                             ),
                           ),
                           trailing: Icon(
@@ -170,19 +174,11 @@ class about_cse extends StatelessWidget {
     );
   }
 
-  void launchURL1() async {
-    final Uri _url =
-        Uri.parse('https://en.wikipedia.org/wiki/Computer_science');
-    if (!await launchUrl(_url)) {
-      throw Exception('Could not launch $_url');
-    }
-  }
-
-  void launchURL2() async {
-    final Uri _url = Uri.parse(
-        'https://www.linkedin.com/in/priyanshu-raj-nit-patna-49a293257/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app');
-    if (!await launchUrl(_url)) {
-      throw Exception('Could not launch $_url');
+  void launchURL(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw Exception('Could not launch $url');
     }
   }
 }

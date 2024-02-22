@@ -5,8 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_launcher_icons/xml_templates.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class about_us extends StatelessWidget {
-  const about_us({super.key});
+class AboutUs extends StatelessWidget {
+  const AboutUs({super.key});
 
   @override
   Widget build(BuildContext context) {

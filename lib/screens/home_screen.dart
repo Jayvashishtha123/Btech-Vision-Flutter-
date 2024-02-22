@@ -1,14 +1,18 @@
+import 'package:btech_vision/Vertical_Scroll_widgets/Academics.dart';
 import 'package:btech_vision/drawer.dart';
-import 'package:btech_vision/quiz.dart';
+import 'package:btech_vision/game/game.dart';
+import 'package:btech_vision/profile/profile_page.dart';
+import 'package:btech_vision/screens/Courses_page.dart';
 import 'package:btech_vision/screens/Home_screen_quiz.dart';
+import 'package:btech_vision/screens/Rate_us.dart';
 import 'package:btech_vision/screens/about_us.dart';
-import 'package:btech_vision/screens/civil_front_page.dart';
-import 'package:btech_vision/screens/cse_front_page.dart';
-import 'package:btech_vision/screens/ece_front_page.dart';
-import 'package:btech_vision/screens/ee_front_page.dart';
-import 'package:btech_vision/screens/mechanical_front_page.dart';
-import 'package:btech_vision/screens/profile_screen.dart';
+import 'package:btech_vision/front_pages/civil_front_page.dart';
+import 'package:btech_vision/front_pages/cse_front_page.dart';
+import 'package:btech_vision/front_pages/ece_front_page.dart';
+import 'package:btech_vision/front_pages/ee_front_page.dart';
+import 'package:btech_vision/front_pages/mechanical_front_page.dart';
 import 'package:btech_vision/screens/splash_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +20,8 @@ import 'package:flutter/services.dart';
 import 'package:vibration/vibration.dart';
 
 class HomeScreen extends StatefulWidget {
+  //final User user;
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 
@@ -81,11 +87,17 @@ class _HomeScreenState extends State<HomeScreen> {
             Positioned(
               top: 50,
               left: screenSize.width * .85,
-              child: SizedBox(
-                width: 40,
-                child: Image.asset(
-                  "assets/images/logo.png",
-                  scale: 1,
+              child: InkWell(
+                onTap: () {
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (_) => ProfilePage()));
+                },
+                child: SizedBox(
+                  width: 40,
+                  child: Image.asset(
+                    "assets/images/logo.png",
+                    scale: 1,
+                  ),
                 ),
               ),
             ),
@@ -154,8 +166,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        // Navigator.push(context,
-                        //     MaterialPageRoute(builder: (_) => SplashScreen()));
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (_) => Courses()));
                       },
                       child: Row(
                         children: [
@@ -177,10 +189,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (_) => const about_us()));
+                        Navigator.pushReplacement(context,
+                            MaterialPageRoute(builder: (_) => AboutUs()));
                       },
                       child: Row(
                         children: [
@@ -200,7 +210,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       width: 10,
                     ),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushReplacement(context,
+                            MaterialPageRoute(builder: (_) => const Rate_us()));
+                      },
                       child: Row(
                         children: [
                           SizedBox(
@@ -558,43 +571,49 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: SizedBox(
                         width: screenSize.width,
                         height: screenSize.height * .1,
-                        child: Container(
-                          decoration: BoxDecoration(
-                              //color: const Color.fromARGB(255, 143, 141, 133),
-                              border: Border.all(
-                                color: Color.fromARGB(255, 67, 9, 193),
-                              ),
-                              borderRadius: BorderRadius.circular(12)),
-                          child: Stack(children: [
-                            // Positioned.fill(
-                            //   child: Image.asset(
-                            //     'assets/images/CSE.png',
-                            //     fit: BoxFit.cover,
-                            //   ),
-                            // ),
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.pushReplacement(context,
+                                MaterialPageRoute(builder: (_) => Academics()));
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                                //color: const Color.fromARGB(255, 143, 141, 133),
+                                border: Border.all(
+                                  color: Color.fromARGB(255, 67, 9, 193),
+                                ),
+                                borderRadius: BorderRadius.circular(12)),
+                            child: Stack(children: [
+                              // Positioned.fill(
+                              //   child: Image.asset(
+                              //     'assets/images/CSE.png',
+                              //     fit: BoxFit.cover,
+                              //   ),
+                              // ),
 
-                            Positioned(
-                              top: 10,
-                              left: 15,
-                              child: Row(
-                                children: [
-                                  SizedBox(
-                                    width: 50,
-                                    child: Image.asset(
-                                        'assets/images/education.png'),
-                                  ),
-                                  SizedBox(
-                                    width: 20,
-                                  ),
-                                  Text(
-                                    'Academics',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 35),
-                                  ),
-                                ],
+                              Positioned(
+                                top: 10,
+                                left: 15,
+                                child: Row(
+                                  children: [
+                                    SizedBox(
+                                      width: 50,
+                                      child: Image.asset(
+                                          'assets/images/education.png'),
+                                    ),
+                                    SizedBox(
+                                      width: 20,
+                                    ),
+                                    Text(
+                                      'Academics',
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 35),
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                          ]),
+                            ]),
+                          ),
                         ),
                       ),
                     ),
@@ -707,40 +726,46 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: SizedBox(
                         width: screenSize.width * .1,
                         height: screenSize.height * .1,
-                        child: Container(
-                          decoration: BoxDecoration(
-                              border: Border.all(
-                                color: Color.fromARGB(255, 67, 9, 193),
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.pushReplacement(context,
+                                MaterialPageRoute(builder: (_) => GuessGame()));
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Color.fromARGB(255, 67, 9, 193),
+                                ),
+                                borderRadius: BorderRadius.circular(12)),
+                            child: Stack(children: [
+                              // Positioned.fill(
+                              //   child: Image.asset(
+                              //     'assets/images/CSE.png',
+                              //     //fit: BoxFit.cover,
+                              //   ),
+                              // ),
+                              Positioned(
+                                top: 10,
+                                left: 15,
+                                child: Row(
+                                  children: [
+                                    Container(
+                                        width: 60,
+                                        child: Image.asset(
+                                            'assets/images/game.png')),
+                                    SizedBox(
+                                      width: 20,
+                                    ),
+                                    Text(
+                                      'Guess the Number',
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 30),
+                                    ),
+                                  ],
+                                ),
                               ),
-                              borderRadius: BorderRadius.circular(12)),
-                          child: Stack(children: [
-                            // Positioned.fill(
-                            //   child: Image.asset(
-                            //     'assets/images/CSE.png',
-                            //     //fit: BoxFit.cover,
-                            //   ),
-                            // ),
-                            Positioned(
-                              top: 10,
-                              left: 15,
-                              child: Row(
-                                children: [
-                                  Container(
-                                      width: 50,
-                                      child: Image.asset(
-                                          'assets/images/education.png')),
-                                  SizedBox(
-                                    width: 20,
-                                  ),
-                                  Text(
-                                    'Courses',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 35),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ]),
+                            ]),
+                          ),
                         ),
                       ),
                     ),
