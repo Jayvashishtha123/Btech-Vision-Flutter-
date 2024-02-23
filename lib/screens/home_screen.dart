@@ -5,6 +5,7 @@ import 'package:btech_vision/profile/profile_page.dart';
 import 'package:btech_vision/screens/Courses_page.dart';
 import 'package:btech_vision/screens/Home_screen_quiz.dart';
 import 'package:btech_vision/screens/Rate_us.dart';
+import 'package:btech_vision/screens/Syllabus.dart';
 import 'package:btech_vision/screens/about_us.dart';
 import 'package:btech_vision/front_pages/civil_front_page.dart';
 import 'package:btech_vision/front_pages/cse_front_page.dart';
@@ -12,6 +13,7 @@ import 'package:btech_vision/front_pages/ece_front_page.dart';
 import 'package:btech_vision/front_pages/ee_front_page.dart';
 import 'package:btech_vision/front_pages/mechanical_front_page.dart';
 import 'package:btech_vision/screens/splash_screen.dart';
+import 'package:btech_vision/task/task_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
@@ -626,41 +628,50 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: SizedBox(
                         width: screenSize.width * .1,
                         height: screenSize.height * .1,
-                        child: Container(
-                          decoration: BoxDecoration(
-                              // color: const Color.fromARGB(255, 143, 141, 133),
-                              border: Border.all(
-                                color: Color.fromARGB(255, 67, 9, 193),
-                              ),
-                              borderRadius: BorderRadius.circular(12)),
-                          child: Stack(children: [
-                            // Positioned.fill(
-                            //   child: Image.asset(
-                            //     'assets/images/CSE.png',
-                            //     //fit: BoxFit.cover,
-                            //   ),
-                            // ),
-                            Positioned(
-                              top: 10,
-                              left: 15,
-                              child: Row(
-                                children: [
-                                  Container(
-                                      width: 50,
-                                      child: Image.asset(
-                                          'assets/images/education.png')),
-                                  SizedBox(
-                                    width: 20,
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.pushReplacement(context,
+                                MaterialPageRoute(builder: (_) => syllabus()));
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                                // color: const Color.fromARGB(255, 143, 141, 133),
+                                border: Border.all(
+                                  color: Color.fromARGB(255, 67, 9, 193),
+                                ),
+                                borderRadius: BorderRadius.circular(12)),
+                            child: Stack(children: [
+                              // Positioned.fill(
+                              //   child: Image.asset(
+                              //     'assets/images/CSE.png',
+                              //     //fit: BoxFit.cover,
+                              //   ),
+                              // ),
+                              Positioned(
+                                top: 10,
+                                left: 15,
+                                child: InkWell(
+                                  onTap: () {},
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                          width: 50,
+                                          child: Image.asset(
+                                              'assets/images/education.png')),
+                                      SizedBox(
+                                        width: 20,
+                                      ),
+                                      Text(
+                                        'Syllabus',
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 35),
+                                      ),
+                                    ],
                                   ),
-                                  Text(
-                                    'Syllabus',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 35),
-                                  ),
-                                ],
+                                ),
                               ),
-                            ),
-                          ]),
+                            ]),
+                          ),
                         ),
                       ),
                     ),
@@ -674,8 +685,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         height: screenSize.height * .1,
                         child: InkWell(
                           onTap: () {
-                            // Navigator.push(context,
-                            //     MaterialPageRoute(builder: (_) => Task()));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (_) => BTechTaskPage()));
                           },
                           child: Container(
                             decoration: BoxDecoration(
@@ -684,12 +697,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                                 borderRadius: BorderRadius.circular(12)),
                             child: Stack(children: [
-                              // Positioned.fill(
-                              //   child: Image.asset(
-                              //     'assets/images/CSE.png',
-                              //     //fit: BoxFit.cover,
-                              //   ),
-                              // ),
                               Positioned(
                                 top: 10,
                                 left: 15,

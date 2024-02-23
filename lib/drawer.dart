@@ -389,8 +389,7 @@ class _MyDrawerState extends State<MyDrawer> {
   }
 
   void launchURL4() async {
-    final Uri _url =
-        Uri.parse('https://www.linkedin.com/in/jay-vashishtha-6aa069250/');
+    final Uri _url = Uri.parse('https://7497121.netlify.app/');
     if (!await launchUrl(_url)) {
       throw Exception('Could not launch $_url');
     }

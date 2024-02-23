@@ -3,20 +3,19 @@ import 'package:btech_vision/screens/home_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_launcher_icons/xml_templates.dart';
-
 import 'package:url_launcher/url_launcher.dart';
 
 class about_mechanical extends StatelessWidget {
-  about_mechanical({super.key});
+  const about_mechanical({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
-      //DeviceOrientation.landscapeRight,
     ]);
+
     Size screenSize = MediaQuery.of(context).size;
+
     return SafeArea(
       child: Scaffold(
         body: Container(
@@ -38,64 +37,70 @@ class about_mechanical extends StatelessWidget {
                 width: screenSize.width,
                 height: screenSize.height * .3,
                 decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 0, 0, 0),
-                    borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(50),
-                        bottomRight: Radius.circular(50))),
-              ),
-              Positioned(
-                  top: 20,
-                  left: 25,
-                  child: SizedBox(
-                      width: 30,
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.pushReplacement(context,
-                              MaterialPageRoute(builder: (_) => HomeScreen()));
-                        },
-                        child: Image.asset(
-                          "assets/images/back.png",
-                          color: Color.fromARGB(255, 86, 83, 83),
-                        ),
-                      ))),
-              Positioned(
-                top: 20,
-                left: 150,
-                child: Text(
-                  "CSE",
-                  style: TextStyle(
-                      color: Color.fromARGB(255, 255, 255, 255),
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold),
+                  color: Color.fromARGB(255, 0, 0, 0),
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(50),
+                    bottomRight: Radius.circular(50),
+                  ),
                 ),
               ),
               Positioned(
-                top: 105,
-                left: 20,
+                top: 20,
+                left: screenSize.width * .05,
+                child: SizedBox(
+                  width: 30,
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (_) => HomeScreen()));
+                    },
+                    child: Image.asset(
+                      "assets/images/back.png",
+                      color: Color.fromARGB(255, 86, 83, 83),
+                    ),
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 80,
+                left: screenSize.width * .4,
                 child: Text(
-                  'I am 𝐉𝐚𝐲 𝐕𝐚𝐫𝐝𝐡𝐚𝐧 𝐕𝐚𝐬𝐡𝐢𝐬𝐡𝐭𝐡𝐚, with my friend 𝐏𝐫𝐢𝐲𝐚𝐧𝐬𝐡𝐮 𝐑𝐚𝐣.\n'
-                  'kejdeohjfheihdijhkwndkpowhijkhoujbsw\n'
-                  'gvhjkiouygfgvhbjklugyfhjkhgfcgvhbjkhgv',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.white, fontSize: 12),
-                  maxLines: 1,
-                  //overflow: TextOverflow.ellipsis,
-                  //softWrap: true,
+                  "ME",
+                  style: TextStyle(
+                    color: Color.fromARGB(255, 255, 255, 255),
+                    fontSize: 35,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 150,
+                left: 90,
+                child: FittedBox(
+                  fit: BoxFit.cover,
+                  child: Text(
+                    '(Mechanical Engineering)',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(color: Colors.white, fontSize: 17),
+                    maxLines: 1,
+                  ),
                 ),
               ),
               Positioned(
                 top: 260,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    width: screenSize.width * .98,
-                    child: Text(
-                      'Computer science is the study of computation, information, and automation.Computer science spans theoretical disciplines (such as algorithms, theory of computation, and information theory) to applied disciplines (including the design and implementation of hardware and software).Though more often considered an academic discipline, computer science is closely related to computer programming.',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15,
+                  child: Center(
+                    child: Container(
+                      width: screenSize.width * .98,
+                      child: Text(
+                        'Mechanical Engineering is a diverse discipline that encompasses the design, analysis, and manufacturing of mechanical systems. Engineers in this field deal with the principles of mechanics, thermodynamics, and materials to develop solutions for a wide range of industries. Mechanical engineers design and optimize machinery, tools, and systems, ensuring they meet efficiency, safety, and environmental standards.',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                      textAlign: TextAlign.center,
                     ),
                   ),
                 ),
@@ -103,16 +108,38 @@ class about_mechanical extends StatelessWidget {
               Positioned(
                 top: 420,
                 left: 250,
-                child: InkWell(
-                  onTap: () {
-                    launchURL1();
-                  },
-                  child: Text(
-                    "Read more",
-                    style: TextStyle(
+                child: Column(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
                         color: Colors.blue,
-                        decoration: TextDecoration.underline),
-                  ),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      padding:
+                          EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                      child: InkWell(
+                        onTap: () => launchURL(
+                            'https://en.wikipedia.org/wiki/Mechanical_engineering'),
+                        child: Text(
+                          "Learn More",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    Container(
+                      child: Text(
+                        "(Wikipedia link)",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 12,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
               Positioned(
@@ -124,39 +151,42 @@ class about_mechanical extends StatelessWidget {
                     Container(
                       width: screenSize.width * .9,
                       decoration: BoxDecoration(
-                          border: Border.all(
-                              color: const Color.fromARGB(255, 0, 0, 0)),
-                          borderRadius: BorderRadius.only(
-                            //topRight: Radius.circular(30),
-                            bottomRight: Radius.circular(30),
-                            topLeft: Radius.circular(30),
-                            //bottomLeft: Radius.circular(30),
-                          ),
-                          color: Color.fromARGB(255, 187, 185, 185)),
+                        border: Border.all(
+                          color: const Color.fromARGB(255, 0, 0, 0),
+                        ),
+                        borderRadius: BorderRadius.only(
+                          bottomRight: Radius.circular(30),
+                          topLeft: Radius.circular(30),
+                        ),
+                        color: Color.fromARGB(255, 187, 185, 185),
+                      ),
                       child: InkWell(
-                        onTap: () {
-                          Navigator.pushReplacement(context,
-                              MaterialPageRoute(builder: (_) => cse()));
-                        },
+                        onTap: () => Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (_) => cse()),
+                        ),
                         child: ListTile(
                           titleAlignment: ListTileTitleAlignment.threeLine,
                           minLeadingWidth: 60,
                           leading: Icon(
                             CupertinoIcons.arrow_right_to_line_alt,
-                            size: 30,
+                            size: 25,
                             shadows: [],
                           ),
                           iconColor: Colors.black,
-                          title: Text(
-                            "Press Here",
-                            style: TextStyle(
-                                color: Colors.black,
+                          title: Center(
+                            child: Text(
+                              "Press Here      ",
+                              style: TextStyle(
+                                color: Color.fromARGB(255, 243, 241, 241),
                                 fontWeight: FontWeight.w400,
-                                fontSize: 25),
+                                fontSize: 25,
+                              ),
+                            ),
                           ),
                           trailing: Icon(
                             CupertinoIcons.arrow_left_to_line,
-                            size: 30,
+                            size: 25,
                           ),
                         ),
                       ),
@@ -171,19 +201,11 @@ class about_mechanical extends StatelessWidget {
     );
   }
 
-  void launchURL1() async {
-    final Uri _url =
-        Uri.parse('https://en.wikipedia.org/wiki/Computer_science');
-    if (!await launchUrl(_url)) {
-      throw Exception('Could not launch $_url');
-    }
-  }
-
-  void launchURL2() async {
-    final Uri _url = Uri.parse(
-        'https://www.linkedin.com/in/priyanshu-raj-nit-patna-49a293257/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app');
-    if (!await launchUrl(_url)) {
-      throw Exception('Could not launch $_url');
+  void launchURL(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw Exception('Could not launch $url');
     }
   }
 }

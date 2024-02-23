@@ -51,10 +51,8 @@ class about_cse extends StatelessWidget {
                   width: 30,
                   child: InkWell(
                     onTap: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (_) => HomeScreen()),
-                      );
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (_) => HomeScreen()));
                     },
                     child: Image.asset(
                       "assets/images/back.png",
@@ -78,26 +76,31 @@ class about_cse extends StatelessWidget {
               Positioned(
                 top: 150,
                 left: 30,
-                child: Text(
-                  '(Computer Science and Engineering)',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.white, fontSize: 20),
-                  maxLines: 1,
+                child: FittedBox(
+                  fit: BoxFit.cover,
+                  child: Text(
+                    '(Computer Science and Engineering)',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(color: Colors.white, fontSize: 17),
+                    maxLines: 1,
+                  ),
                 ),
               ),
               Positioned(
                 top: 260,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    width: screenSize.width * .98,
-                    child: Text(
-                      'Computer science is the study of computation, information, and automation. Computer science spans theoretical disciplines such as algorithms, theory of computation, and information theory to applied disciplines including the design and implementation of hardware and software. Though more often considered an academic discipline, computer science is closely related to computer programming.',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15,
+                  child: Center(
+                    child: Container(
+                      width: screenSize.width * .98,
+                      child: Text(
+                        'Computer Science and Engineering is a discipline that deals with the theory and practice of computation and the design of computer systems. It involves understanding the principles of computer systems, programming languages, and algorithms.',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                      textAlign: TextAlign.center,
                     ),
                   ),
                 ),
@@ -105,16 +108,38 @@ class about_cse extends StatelessWidget {
               Positioned(
                 top: 420,
                 left: 250,
-                child: InkWell(
-                  onTap: () => launchURL(
-                      'https://en.wikipedia.org/wiki/Computer_science'),
-                  child: Text(
-                    "Read more",
-                    style: TextStyle(
-                      color: Colors.blue,
-                      decoration: TextDecoration.underline,
+                child: Column(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      padding:
+                          EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                      child: InkWell(
+                        onTap: () => launchURL(
+                            'https://en.wikipedia.org/wiki/Computer_science_and_engineering'),
+                        child: Text(
+                          "Learn More",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
+                    SizedBox(height: 10),
+                    Container(
+                      child: Text(
+                        "(Wikipedia link)",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 12,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
               Positioned(
@@ -137,7 +162,9 @@ class about_cse extends StatelessWidget {
                       ),
                       child: InkWell(
                         onTap: () => Navigator.pushReplacement(
-                            context, MaterialPageRoute(builder: (_) => cse())),
+                          context,
+                          MaterialPageRoute(builder: (_) => cse()),
+                        ),
                         child: ListTile(
                           titleAlignment: ListTileTitleAlignment.threeLine,
                           minLeadingWidth: 60,
