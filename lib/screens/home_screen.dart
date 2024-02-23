@@ -1,7 +1,6 @@
 import 'package:btech_vision/Vertical_Scroll_widgets/Academics.dart';
 import 'package:btech_vision/drawer.dart';
 import 'package:btech_vision/game/game.dart';
-import 'package:btech_vision/profile/profile_page.dart';
 import 'package:btech_vision/screens/Courses_page.dart';
 import 'package:btech_vision/screens/Home_screen_quiz.dart';
 import 'package:btech_vision/screens/Rate_us.dart';
@@ -89,17 +88,11 @@ class _HomeScreenState extends State<HomeScreen> {
             Positioned(
               top: 50,
               left: screenSize.width * .85,
-              child: InkWell(
-                onTap: () {
-                  Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (_) => ProfilePage()));
-                },
-                child: SizedBox(
-                  width: 40,
-                  child: Image.asset(
-                    "assets/images/logo.png",
-                    scale: 1,
-                  ),
+              child: SizedBox(
+                width: 40,
+                child: Image.asset(
+                  "assets/images/logo.png",
+                  scale: 1,
                 ),
               ),
             ),

@@ -27,24 +27,35 @@ class FAQPage extends StatelessWidget {
         child: ListView(
           children: [
             FAQItem(
-              question: 'What is BTech Vision?',
+              question: 'How do I download and install BTech Vision?',
               answer:
-                  'It is a app created by us, to help all the students who want to know about Btech course of Engineering.',
+                  'You can download and install BTech Vision from the official app store on your device. Search for "BTech Vision" and follow the installation instructions.',
             ),
             FAQItem(
-              question: 'why we need this application?',
+              question: 'Is BTech Vision available on both Android and iOS?',
               answer:
-                  'To explore Btech Domain and also we have provided some stuff to help you in ur studies.',
+                  'Yes, BTech Vision is available on both the Android and iOS platforms. You can download it from Google Play Store for Android devices and the App Store for iOS devices.',
             ),
             FAQItem(
-              question: 'Why we us it?',
+              question: 'Can I suggest new features for BTech Vision?',
               answer:
-                  'We will make additional features in this app in future that will help you a lot.',
+                  'Absolutely! We appreciate user feedback. You can suggest new features or improvements through our contact channels or social media platforms. Your input helps us make the app better.',
             ),
+            FAQItem(
+              question: 'Are there any in-app purchases?',
+              answer:
+                  'As of version 1.0.0, BTech Vision does not have any in-app purchases. All features are accessible to users without any additional charges.',
+            ),
+            FAQItem(
+              question: 'How often is the app updated?',
+              answer:
+                  'We strive to provide regular updates to improve user experience and add new features. Updates are usually scheduled, and announcements will be made on our official channels.',
+            ),
+
             FAQItem(
               question: 'Can we chat with you via this App?',
               answer:
-                  'Not with this version(1.0.0) this feature will be updated in furthur versions, You can contact us via Social Media Platforms mention in App.',
+                  'Yes ofcourse & You can contact us via Social Media Platforms mention in App.',
             ),
             FAQItem(
               question: 'Do we got handwritten note?',

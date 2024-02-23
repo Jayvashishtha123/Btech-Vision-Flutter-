@@ -195,47 +195,48 @@ class _LoginPageState extends State<LoginPage> {
                 ],
               ),
               Spacer(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text("Already Signed in?"),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(builder: (context) => HomeScreen()),
-                        (route) => false,
-                      );
-                    },
-                    child: const Text(
-                      "Skip",
-                      style: TextStyle(
-                        color: Colors.blue,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      var email = _emailController.text;
-                      Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(builder: (context) => HomeScreen()),
-                          (route) => false);
-                    },
-                    child: Icon(
-                      Icons.arrow_right_alt,
-                      color: Colors.blue,
-                    ),
-                  )
-                ],
-              ),
+              Spacer(),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.end,
+              //   children: [
+              //     Text("Already Signed in?"),
+              //     SizedBox(
+              //       width: 5,
+              //     ),
+              //     GestureDetector(
+              //       onTap: () {
+              //         Navigator.pushAndRemoveUntil(
+              //           context,
+              //           MaterialPageRoute(builder: (context) => HomeScreen()),
+              //           (route) => false,
+              //         );
+              //       },
+              //       child: const Text(
+              //         "Skip",
+              //         style: TextStyle(
+              //           color: Colors.blue,
+              //           fontWeight: FontWeight.bold,
+              //         ),
+              //       ),
+              //     ),
+              //     InkWell(
+              //       onTap: () {
+              //         var email = _emailController.text;
+              //         Navigator.pushAndRemoveUntil(
+              //             context,
+              //             MaterialPageRoute(builder: (context) => HomeScreen()),
+              //             (route) => false);
+              //       },
+              //       child: Icon(
+              //         Icons.arrow_right_alt,
+              //         color: Colors.blue,
+              //       ),
+              //     )
+              //   ],
+              // ),
               SizedBox(
                 height: 5,
-              )
+              ),
             ],
           ),
         ),

@@ -240,61 +240,64 @@ class _QuizAppState extends State<QuizApp> {
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
     ]);
-    return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pushReplacement(
-                context, MaterialPageRoute(builder: (_) => cse()));
-          },
-          icon: Icon(Icons.arrow_back),
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Color.fromARGB(255, 54, 82, 52),
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pushReplacement(
+                  context, MaterialPageRoute(builder: (_) => cse()));
+            },
+            icon: Icon(Icons.arrow_back),
+          ),
+          title: Text('Quiz'),
+          actions: [
+            // Add any additional actions here
+          ],
         ),
-        title: Text('Quiz'),
-        actions: [
-          // Add any additional actions here
-        ],
-      ),
-      body: AnimatedSwitcher(
-        duration: Duration(milliseconds: 500),
-        child: _questionIndex < _questions.length
-            ? Quiz(
-                key: ValueKey<int>(_questionIndex), // Ensure unique keys
-                questionText:
-                    _questions[_questionIndex]['questionText'] as String,
-                answers: _questions[_questionIndex]['answers']
-                    as List<Map<String, Object>>,
-                answerHandler: _answerQuestion,
-                isAnswered: _isAnswered,
-                onAnswered: () {
-                  setState(() {
-                    _isAnswered = true;
-                  });
-                },
-              )
-            : Center(
-                key: ValueKey<String>('result'), // Ensure unique keys
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Quiz completed!\nYour Final Score: $_score',
-                      style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.blue,
+        body: AnimatedSwitcher(
+          duration: Duration(milliseconds: 500),
+          child: _questionIndex < _questions.length
+              ? Quiz(
+                  key: ValueKey<int>(_questionIndex), // Ensure unique keys
+                  questionText:
+                      _questions[_questionIndex]['questionText'] as String,
+                  answers: _questions[_questionIndex]['answers']
+                      as List<Map<String, Object>>,
+                  answerHandler: _answerQuestion,
+                  isAnswered: _isAnswered,
+                  onAnswered: () {
+                    setState(() {
+                      _isAnswered = true;
+                    });
+                  },
+                )
+              : Center(
+                  key: ValueKey<String>('result'), // Ensure unique keys
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Quiz completed!\nYour Final Score: $_score',
+                        style: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.blue,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                      textAlign: TextAlign.center,
-                    ),
-                    Text('Time taken: $_elapsedSeconds seconds'),
-                    ElevatedButton(
-                      onPressed: () {
-                        _resetQuiz();
-                      },
-                      child: Text('Restart Quiz'),
-                    ),
-                  ],
+                      Text('Time taken: $_elapsedSeconds seconds'),
+                      ElevatedButton(
+                        onPressed: () {
+                          _resetQuiz();
+                        },
+                        child: Text('Restart Quiz'),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
+        ),
       ),
     );
   }
@@ -370,7 +373,8 @@ class Answer extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          primary: Colors.blue, // Change the button color
+          primary: const Color.fromARGB(
+              255, 139, 145, 150), // Change the button color
         ),
         child: Text(
           text,
