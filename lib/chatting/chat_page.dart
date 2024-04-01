@@ -54,8 +54,7 @@ class ChatScreen extends StatelessWidget {
         backgroundColor: Color.fromARGB(255, 22, 60, 55),
         leading: IconButton(
             onPressed: () {
-              Navigator.pushReplacement(
-                  context, MaterialPageRoute(builder: (_) => MyDrawer()));
+              Navigator.pushNamed(context, '/drawer');
             },
             icon: Icon(Icons.arrow_back_sharp)),
         title: Text(

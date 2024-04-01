@@ -66,8 +66,7 @@ class _GuessGameState extends State<GuessGame> {
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {
-              Navigator.pushReplacement(
-                  context, MaterialPageRoute(builder: (_) => HomeScreen()));
+              Navigator.pushNamed(context, '/home');
             },
             icon: Icon(Icons.arrow_back)),
         backgroundColor: Colors.black,

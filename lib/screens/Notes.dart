@@ -12,8 +12,6 @@ class notes extends StatelessWidget {
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {
-              // Navigator.pop(context);
-              //print("jay");
               Navigator.pushReplacement(
                   context, MaterialPageRoute(builder: (_) => cse()));
               print("jay");

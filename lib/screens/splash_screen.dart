@@ -25,7 +25,6 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
-      //DeviceOrientation.landscapeRight,
     ]);
     Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
@@ -41,7 +40,6 @@ class _SplashScreenState extends State<SplashScreen> {
             Center(
               child: SizedBox(
                 width: 150,
-                // height: 250,
                 child: Image.asset(
                   'assets/images/logo.png',
                 ),

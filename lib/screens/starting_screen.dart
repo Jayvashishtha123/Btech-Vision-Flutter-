@@ -24,14 +24,10 @@ class _StartingScreenState extends State<StartingScreen> {
     });
   }
 
-  // Navigator.pushReplacement(
-  //     context, MaterialPageRoute(builder: (_) => const HomeScreen()));
-
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
-      //DeviceOrientation.landscapeRight,
     ]);
     Size screenSize = MediaQuery.of(context).size;
 
@@ -44,7 +40,6 @@ class _StartingScreenState extends State<StartingScreen> {
               fit: BoxFit.cover)),
       child: Stack(
         children: [
-          //Image.asset("assets/images/backgnd.jpg"),
           AnimatedPositioned(
               top: 150,
               right: _isAnimate ? 115 : 50,

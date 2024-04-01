@@ -19,7 +19,6 @@ class _MyDrawerState extends State<MyDrawer> {
 
   @override
   void dispose() {
-    // Clean up the controller when the widget is disposed.
     myController.dispose();
     super.dispose();
   }
@@ -29,12 +28,10 @@ class _MyDrawerState extends State<MyDrawer> {
     Size screenSize = MediaQuery.of(context).size;
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
-      //DeviceOrientation.landscapeRight,
     ]);
 
     return Drawer(
       shape: LinearBorder.bottom(),
-      //debugShowCheckedModeBanner: false,
       child: SafeArea(
         child: Column(
           children: [
@@ -48,20 +45,10 @@ class _MyDrawerState extends State<MyDrawer> {
                     'assets/images/welcome.gif',
                     color: Color.fromARGB(255, 198, 200, 199),
                   ),
-                  // Text(
-                  //   // myController.text,
-                  //   "Hi! jay Vashishtha",
-                  //   style: TextStyle(
-                  //       color: Colors.white,
-                  //       fontSize: 20,
-                  //       fontWeight: FontWeight.bold),
-                  // ),
                   SizedBox(
                     height: 40,
                     child: Image.asset(
                       "assets/images/hello.gif",
-
-                      //color: Colors.white,
                     ),
                   )
                 ],
@@ -72,28 +59,7 @@ class _MyDrawerState extends State<MyDrawer> {
                       bottomLeft: Radius.circular(10),
                       bottomRight: Radius.circular(10))),
             ),
-            // TextField(
-            //   controller: myController,
-            // ),
-            //To Get value from textfiled using controller...........
-            // InkWell(
-            //   onTap: () {
-            //     showDialog(
-            //       context: context,
-            //       builder: (context) {
-            //         return AlertDialog(
-            //           // Retrieve the text the that user has entered by using the
-            //           // TextEditingController.
-            //           content: Text(myController.text),
-            //         );
-            //       },
-            //     );
-            //   },
-            //   child: Text("jay"),
-            // ),
-
             Spacer(),
-
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -171,7 +137,6 @@ class _MyDrawerState extends State<MyDrawer> {
                 ),
               ],
             ),
-
             Spacer(),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -210,7 +175,6 @@ class _MyDrawerState extends State<MyDrawer> {
                 ),
               ],
             ),
-
             Spacer(),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -268,7 +232,6 @@ class _MyDrawerState extends State<MyDrawer> {
                       minLeadingWidth: 20,
                       leading: SizedBox(
                           height: 30, child: Icon(Icons.web_asset_outlined)),
-                      // child: Image.asset("assets/images/aboutus.png")),
                       iconColor: Colors.black,
                       title: Text(
                         "Our Website!",
@@ -329,9 +292,7 @@ class _MyDrawerState extends State<MyDrawer> {
                 ),
               ],
             ),
-
             Spacer(),
-
             Container(
                 width: screenSize.width,
                 height: screenSize.height * 0.05,
@@ -356,7 +317,6 @@ class _MyDrawerState extends State<MyDrawer> {
                   ],
                 )),
             Spacer(),
-
             Text("Version 1.0.0"),
             Spacer(),
           ],
@@ -381,8 +341,8 @@ class _MyDrawerState extends State<MyDrawer> {
   }
 
   void launchURL3() async {
-    final Uri _url =
-        Uri.parse('https://www.linkedin.com/in/jay-vashishtha-6aa069250/');
+    final Uri _url = Uri.parse(
+        'https://www.linkedin.com/in/jay-vardhan-vashishtha-6aa069250/');
     if (!await launchUrl(_url)) {
       throw Exception('Could not launch $_url');
     }

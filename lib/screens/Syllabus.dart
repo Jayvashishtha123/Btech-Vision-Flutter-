@@ -8,7 +8,6 @@ class syllabus extends StatelessWidget {
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
-      //DeviceOrientation.landscapeRight,
     ]);
 
     double screenWidth = MediaQuery.of(context).size.width;
@@ -64,10 +63,8 @@ class syllabus extends StatelessWidget {
                 "Network Security",
                 "Game Development",
                 "Algorithmic Trading",
-                // Add more courses as needed
               ],
             ),
-
             BranchSyllabus(
               branchName: "Electronics and Communication",
               label: "Electronics and Communication",
@@ -102,10 +99,8 @@ class syllabus extends StatelessWidget {
                 "Electronic Product Design",
                 "Data Communication and Networking",
                 "Real-time Systems",
-                // Add more courses as needed
               ],
             ),
-
             BranchSyllabus(
               branchName: "Mechanical Engineering",
               label: "Mechanical Engineering",
@@ -140,10 +135,8 @@ class syllabus extends StatelessWidget {
                 "Nanotechnology in Mechanical Engineering",
                 "Engineering Economics",
                 "Advanced Manufacturing Technologies",
-                // Add more courses as needed
               ],
             ),
-
             BranchSyllabus(
               branchName: "Civil Engineering",
               label: "Civil Engineering",
@@ -179,10 +172,8 @@ class syllabus extends StatelessWidget {
                 "Coastal Engineering",
                 "Advanced Geotechnical Engineering",
                 "Ground Improvement Techniques",
-                // Add more courses as needed
               ],
             ),
-
             BranchSyllabus(
               branchName: "Electrical Engineering",
               label: "Electrical Engineering",
@@ -220,10 +211,8 @@ class syllabus extends StatelessWidget {
                 "Renewable Energy Integration",
                 "Internet of Things (IoT) in Electrical Engineering",
                 "Electric Vehicle Technology",
-                // Add more courses as needed
               ],
             ),
-
             BranchSyllabus(
               branchName: "Chemical Engineering",
               label: "Chemical Engineering",
@@ -260,10 +249,8 @@ class syllabus extends StatelessWidget {
                 "Quality Control in Chemical Engineering",
                 "Chemical Engineering Ethics and Professionalism",
                 "Entrepreneurship in Chemical Engineering",
-                // Add more courses as needed
               ],
             ),
-
             BranchSyllabus(
               branchName: "Architecture",
               label: "Architecture",
@@ -300,11 +287,8 @@ class syllabus extends StatelessWidget {
                 "Global Perspectives in Architecture",
                 "Architectural Criticism and Writing",
                 "Entrepreneurship in Architecture",
-                // Add more courses as needed
               ],
             ),
-
-            // Add more BranchSyllabus items for other branches as needed
           ],
         ),
       ),

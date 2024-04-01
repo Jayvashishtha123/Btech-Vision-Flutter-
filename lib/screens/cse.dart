@@ -1,7 +1,7 @@
 import 'package:btech_vision/main.dart';
 import 'package:btech_vision/quiz.dart';
 import 'package:btech_vision/screens/Books.dart';
-import 'package:btech_vision/screens/Lectures.dart';
+import 'package:btech_vision/lectures/Lectures.dart';
 import 'package:btech_vision/screens/Notes.dart';
 import 'package:btech_vision/screens/Syllabus.dart';
 import 'package:btech_vision/screens/assignment_page.dart';

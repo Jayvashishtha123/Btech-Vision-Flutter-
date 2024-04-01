@@ -12,7 +12,6 @@ class AboutUs extends StatelessWidget {
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
-      //DeviceOrientation.landscapeRight,
     ]);
     Size screenSize = MediaQuery.of(context).size;
     return SafeArea(
@@ -69,7 +68,7 @@ class AboutUs extends StatelessWidget {
                 top: 105,
                 left: 20,
                 child: Text(
-                  "I am '𝐉𝐚𝐲 𝐕𝐚𝐫𝐝𝐡𝐚𝐧 𝐕𝐚𝐬𝐡𝐢𝐬𝐡𝐭𝐡𝐚', with my friend 𝐏𝐫𝐢𝐲𝐚𝐧𝐬𝐡𝐮 𝐑𝐚𝐣.",
+                  "I am '𝐉𝐚𝐲 𝐕𝐚𝐫𝐝𝐡𝐚𝐧 𝐕𝐚𝐬𝐡𝐢𝐬𝐡𝐭𝐡𝐚'",
                   style: TextStyle(color: Colors.white, fontSize: 12),
                 ),
               ),
@@ -77,7 +76,7 @@ class AboutUs extends StatelessWidget {
                 top: 122,
                 left: 35,
                 child: Text(
-                  "We are B.Tech students in 𝐍𝐢𝐭 𝐩𝐚𝐭𝐧𝐚.We developed this",
+                  "I am a B.Tech student in 𝐍𝐢𝐭 𝐩𝐚𝐭𝐧𝐚, developed this",
                   style: TextStyle(color: Colors.white, fontSize: 12),
                 ),
               ),
@@ -85,7 +84,7 @@ class AboutUs extends StatelessWidget {
                 top: 142,
                 left: 35,
                 child: Text(
-                  "application as one of first year project. This app",
+                  "application as one of myproject. This app",
                   style: TextStyle(color: Colors.white, fontSize: 12),
                 ),
               ),
@@ -248,137 +247,137 @@ class AboutUs extends StatelessWidget {
                   ),
                 ),
               ),
-              Positioned(
-                top: 480,
-                child: Container(
-                  width: screenSize.width,
-                  height: 150,
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(100),
-                          bottomRight: Radius.circular(100)),
-                      color: Color.fromARGB(255, 84, 85, 82)),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(0.5),
-                        child: Image.asset("assets/images/priyanshu.jpeg"),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Column(
-                        children: [
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 40),
-                            child: Text(
-                              "𝙋𝙧𝙞𝙮𝙖𝙣𝙨𝙝𝙪 𝙍𝙖𝙟",
-                              style: TextStyle(
-                                  fontSize: 15, fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 40),
-                            child: Text(
-                              "Web Developer",
-                              style: TextStyle(
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.bold,
-                                  color: Color.fromARGB(255, 114, 112, 108)),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 20, top: 10),
-                            child: Container(
-                              child: Padding(
-                                padding:
-                                    const EdgeInsets.only(top: 4, left: 12),
-                                child: Text(
-                                  "CSE Department",
-                                  style: TextStyle(
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                              width: 100,
-                              height: 20,
-                              decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.black),
-                                  color: Color.fromARGB(255, 141, 134, 112),
-                                  borderRadius: BorderRadius.circular(20)),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 20, top: 10),
-                            child: Container(
-                              child: Padding(
-                                padding:
-                                    const EdgeInsets.only(top: 4, left: 20),
-                                child: Text(
-                                  "Second Year",
-                                  style: TextStyle(
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                              width: 100,
-                              height: 20,
-                              decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.black),
-                                  color: Color.fromARGB(255, 141, 134, 112),
-                                  borderRadius: BorderRadius.circular(20)),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 20, top: 10),
-                            child: Container(
-                              child: Padding(
-                                padding:
-                                    const EdgeInsets.only(top: 4, left: 25),
-                                child: Text(
-                                  "Nit Patna",
-                                  style: TextStyle(
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                              width: 100,
-                              height: 20,
-                              decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.black),
-                                  color: Color.fromARGB(255, 141, 134, 112),
-                                  borderRadius: BorderRadius.circular(20)),
-                            ),
-                          )
-                        ],
-                      ),
-                      SizedBox(
-                        width: 0,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(top: 20, left: 10),
-                        child: Container(
-                          width: 25,
-                          child: InkWell(
-                              onTap: () {
-                                launchURL2();
-                              },
-                              child: Image.asset(
-                                  "assets/images/linkedin (1).png")),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
+              // Positioned(
+              //   top: 480,
+              //   child: Container(
+              //     width: screenSize.width,
+              //     height: 150,
+              //     decoration: BoxDecoration(
+              //         border: Border.all(color: Colors.black),
+              //         borderRadius: BorderRadius.only(
+              //             topRight: Radius.circular(100),
+              //             bottomRight: Radius.circular(100)),
+              //         color: Color.fromARGB(255, 84, 85, 82)),
+              //     child: Row(
+              //       mainAxisAlignment: MainAxisAlignment.start,
+              //       children: [
+              //         Padding(
+              //           padding: const EdgeInsets.all(0.5),
+              //           child: Image.asset("assets/images/priyanshu.jpeg"),
+              //         ),
+              //         SizedBox(
+              //           width: 10,
+              //         ),
+              //         Column(
+              //           children: [
+              //             SizedBox(
+              //               height: 10,
+              //             ),
+              //             Padding(
+              //               padding: const EdgeInsets.only(right: 40),
+              //               child: Text(
+              //                 "𝙋𝙧𝙞𝙮𝙖𝙣𝙨𝙝𝙪 𝙍𝙖𝙟",
+              //                 style: TextStyle(
+              //                     fontSize: 15, fontWeight: FontWeight.bold),
+              //               ),
+              //             ),
+              //             SizedBox(
+              //               height: 5,
+              //             ),
+              //             Padding(
+              //               padding: const EdgeInsets.only(right: 40),
+              //               child: Text(
+              //                 "Web Developer",
+              //                 style: TextStyle(
+              //                     fontSize: 10,
+              //                     fontWeight: FontWeight.bold,
+              //                     color: Color.fromARGB(255, 114, 112, 108)),
+              //               ),
+              //             ),
+              //             Padding(
+              //               padding: const EdgeInsets.only(right: 20, top: 10),
+              //               child: Container(
+              //                 child: Padding(
+              //                   padding:
+              //                       const EdgeInsets.only(top: 4, left: 12),
+              //                   child: Text(
+              //                     "CSE Department",
+              //                     style: TextStyle(
+              //                         fontSize: 10,
+              //                         fontWeight: FontWeight.bold),
+              //                   ),
+              //                 ),
+              //                 width: 100,
+              //                 height: 20,
+              //                 decoration: BoxDecoration(
+              //                     border: Border.all(color: Colors.black),
+              //                     color: Color.fromARGB(255, 141, 134, 112),
+              //                     borderRadius: BorderRadius.circular(20)),
+              //               ),
+              //             ),
+              //             Padding(
+              //               padding: const EdgeInsets.only(right: 20, top: 10),
+              //               child: Container(
+              //                 child: Padding(
+              //                   padding:
+              //                       const EdgeInsets.only(top: 4, left: 20),
+              //                   child: Text(
+              //                     "Second Year",
+              //                     style: TextStyle(
+              //                         fontSize: 10,
+              //                         fontWeight: FontWeight.bold),
+              //                   ),
+              //                 ),
+              //                 width: 100,
+              //                 height: 20,
+              //                 decoration: BoxDecoration(
+              //                     border: Border.all(color: Colors.black),
+              //                     color: Color.fromARGB(255, 141, 134, 112),
+              //                     borderRadius: BorderRadius.circular(20)),
+              //               ),
+              //             ),
+              //             Padding(
+              //               padding: const EdgeInsets.only(right: 20, top: 10),
+              //               child: Container(
+              //                 child: Padding(
+              //                   padding:
+              //                       const EdgeInsets.only(top: 4, left: 25),
+              //                   child: Text(
+              //                     "Nit Patna",
+              //                     style: TextStyle(
+              //                         fontSize: 10,
+              //                         fontWeight: FontWeight.bold),
+              //                   ),
+              //                 ),
+              //                 width: 100,
+              //                 height: 20,
+              //                 decoration: BoxDecoration(
+              //                     border: Border.all(color: Colors.black),
+              //                     color: Color.fromARGB(255, 141, 134, 112),
+              //                     borderRadius: BorderRadius.circular(20)),
+              //               ),
+              //             )
+              //           ],
+              //         ),
+              //         SizedBox(
+              //           width: 0,
+              //         ),
+              //         Padding(
+              //           padding: EdgeInsets.only(top: 20, left: 10),
+              //           child: Container(
+              //             width: 25,
+              //             child: InkWell(
+              //                 onTap: () {
+              //                   launchURL2();
+              //                 },
+              //                 child: Image.asset(
+              //                     "assets/images/linkedin (1).png")),
+              //           ),
+              //         )
+              //       ],
+              //     ),
+              //   ),
+              // ),
             ],
           ),
         ),
@@ -387,8 +386,8 @@ class AboutUs extends StatelessWidget {
   }
 
   void launchURL1() async {
-    final Uri _url =
-        Uri.parse('https://www.linkedin.com/in/jay-vashishtha-6aa069250/');
+    final Uri _url = Uri.parse(
+        'https://www.linkedin.com/in/jay-vardhan-vashishtha-6aa069250/');
     if (!await launchUrl(_url)) {
       throw Exception('Could not launch $_url');
     }

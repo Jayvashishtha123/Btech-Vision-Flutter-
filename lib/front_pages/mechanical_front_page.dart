@@ -51,8 +51,7 @@ class about_mechanical extends StatelessWidget {
                   width: 30,
                   child: InkWell(
                     onTap: () {
-                      Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (_) => HomeScreen()));
+                      Navigator.pop(context, '/home');
                     },
                     child: Image.asset(
                       "assets/images/back.png",
@@ -161,10 +160,7 @@ class about_mechanical extends StatelessWidget {
                         color: Color.fromARGB(255, 187, 185, 185),
                       ),
                       child: InkWell(
-                        onTap: () => Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(builder: (_) => cse()),
-                        ),
+                        onTap: () => Navigator.pushNamed(context, '/cse'),
                         child: ListTile(
                           titleAlignment: ListTileTitleAlignment.threeLine,
                           minLeadingWidth: 60,

@@ -63,8 +63,6 @@ class Rate_us extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    // decoration: BoxDecoration(
-                    //     color: Color.fromARGB(255, 234, 236, 232)),
                     child: Padding(
                       padding: const EdgeInsets.only(left: 100),
                       child: Row(
