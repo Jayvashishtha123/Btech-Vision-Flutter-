@@ -1,16 +1,9 @@
 import 'package:btech_vision/Auth/sign_up_page.dart';
 import 'package:btech_vision/firebase_auth_services.dart';
 import 'package:btech_vision/form_container_widget.dart';
-import 'package:btech_vision/screens/home_screen.dart';
-
 import 'package:btech_vision/toast.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_launcher_icons/xml_templates.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -22,9 +15,8 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   bool _isSigning = false;
   final FirebaseAuthService _auth = FirebaseAuthService();
-  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   @override
   void dispose() {
@@ -36,11 +28,11 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 255, 255, 255),
+      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       appBar: AppBar(
         backgroundColor: Colors.black,
         automaticallyImplyLeading: false,
-        title: Center(
+        title: const Center(
           child: Text(
             "Btech Vision",
             style: TextStyle(
@@ -57,14 +49,14 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Spacer(),
-              Text(
+              const Text(
                 "Login",
                 style: TextStyle(
                     fontSize: 27,
                     fontWeight: FontWeight.bold,
                     fontFamily: 'seasrn'),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               Container(
@@ -78,14 +70,14 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         width: 2),
                     borderRadius: BorderRadius.circular(10),
-                    color: Color.fromARGB(255, 255, 255, 255)),
+                    color: const Color.fromARGB(255, 255, 255, 255)),
                 child: FormContainerWidget(
                   controller: _emailController,
                   hintText: "Email",
                   isPasswordField: false,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Container(
@@ -93,14 +85,14 @@ class _LoginPageState extends State<LoginPage> {
                     border: Border.all(
                         color: const Color.fromARGB(255, 0, 0, 0), width: 2),
                     borderRadius: BorderRadius.circular(10),
-                    color: Color.fromARGB(255, 255, 255, 255)),
+                    color: const Color.fromARGB(255, 255, 255, 255)),
                 child: FormContainerWidget(
                   controller: _passwordController,
                   hintText: "Password",
                   isPasswordField: true,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               GestureDetector(
@@ -116,10 +108,10 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   child: Center(
                     child: _isSigning
-                        ? CircularProgressIndicator(
+                        ? const CircularProgressIndicator(
                             color: Colors.white,
                           )
-                        : Text(
+                        : const Text(
                             "Login",
                             style: TextStyle(
                               color: Colors.white,
@@ -129,7 +121,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               GestureDetector(
@@ -143,7 +135,7 @@ class _LoginPageState extends State<LoginPage> {
                     color: Colors.red,
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: Center(
+                  child: const Center(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -166,14 +158,14 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Don't have an account?"),
-                  SizedBox(
+                  const Text("Don't have an account?"),
+                  const SizedBox(
                     width: 5,
                   ),
                   GestureDetector(
@@ -194,49 +186,8 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ],
               ),
-              Spacer(),
-              Spacer(),
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.end,
-              //   children: [
-              //     Text("Already Signed in?"),
-              //     SizedBox(
-              //       width: 5,
-              //     ),
-              //     GestureDetector(
-              //       onTap: () {
-              //         Navigator.pushAndRemoveUntil(
-              //           context,
-              //           MaterialPageRoute(builder: (context) => HomeScreen()),
-              //           (route) => false,
-              //         );
-              //       },
-              //       child: const Text(
-              //         "Skip",
-              //         style: TextStyle(
-              //           color: Colors.blue,
-              //           fontWeight: FontWeight.bold,
-              //         ),
-              //       ),
-              //     ),
-              //     InkWell(
-              //       onTap: () {
-              //         var email = _emailController.text;
-              //         Navigator.pushAndRemoveUntil(
-              //             context,
-              //             MaterialPageRoute(builder: (context) => HomeScreen()),
-              //             (route) => false);
-              //       },
-              //       child: Icon(
-              //         Icons.arrow_right_alt,
-              //         color: Colors.blue,
-              //       ),
-              //     )
-              //   ],
-              // ),
-              SizedBox(
-                height: 5,
-              ),
+              const Spacer(),
+              const Spacer(),
             ],
           ),
         ),
@@ -260,6 +211,7 @@ class _LoginPageState extends State<LoginPage> {
 
     if (user != null) {
       showToast(message: "User is successfully signed in");
+      // ignore: use_build_context_synchronously
       Navigator.pushNamed(context, "/home");
     } else {
       showToast(message: "some error occured");
@@ -270,15 +222,11 @@ class _LoginPageState extends State<LoginPage> {
     try {
       await FirebaseAuth.instance
           .sendPasswordResetEmail(email: _emailController.text);
-      // Password reset email sent successfully
       showToast(
           message:
               "Password reset link sent to your entered email Successfully");
-      print('Password reset email sent to ${_emailController.text}');
     } catch (e) {
       showToast(message: "Enter your email: $e");
-      // An error occurred while sending the password reset email
-      print('Error sending password reset email: $e');
     }
   }
 }

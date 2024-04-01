@@ -9,16 +9,14 @@ class MessageSearchDelegate extends SearchDelegate<String> {
 
     List<String> usernames = [];
 
-    querySnapshot.docs.forEach((doc) {
-      // Assuming you have a 'sender' field in your 'messages' collection
+    for (var doc in querySnapshot.docs) {
       String? sender = doc['sender'];
 
       if (sender != null) {
         usernames.add(sender);
       }
-    });
+    }
 
-    // Remove duplicate usernames
     usernames = usernames.toSet().toList();
 
     return usernames;
@@ -44,7 +42,7 @@ class MessageSearchDelegate extends SearchDelegate<String> {
       future: getUsernamesFromFirebase(),
       builder: (context, AsyncSnapshot<List<String>> snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator());
         }
 
         if (snapshot.hasError) {
@@ -73,7 +71,6 @@ class MessageSearchDelegate extends SearchDelegate<String> {
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    // You can display suggestions based on the entered query here
     return Container();
   }
 
@@ -81,7 +78,7 @@ class MessageSearchDelegate extends SearchDelegate<String> {
   List<Widget> buildActions(BuildContext context) {
     return [
       IconButton(
-        icon: Icon(Icons.clear),
+        icon: const Icon(Icons.clear),
         onPressed: () {
           query = '';
         },
@@ -91,9 +88,6 @@ class MessageSearchDelegate extends SearchDelegate<String> {
 
   @override
   void showResults(BuildContext context) {
-    // Handle search results
-    if (query != null) {
-      close(context, query!);
-    }
+    close(context, query);
   }
 }

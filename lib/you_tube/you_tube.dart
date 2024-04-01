@@ -5,14 +5,14 @@ import 'package:webview_flutter_android/webview_flutter_android.dart';
 // Import for iOS features.
 import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
 
-class WebViewExample extends StatefulWidget {
-  const WebViewExample({super.key});
+class You_tube extends StatefulWidget {
+  const You_tube({super.key});
 
   @override
-  State<WebViewExample> createState() => _WebViewExampleState();
+  State<You_tube> createState() => _WebViewExampleState();
 }
 
-class _WebViewExampleState extends State<WebViewExample> {
+class _WebViewExampleState extends State<You_tube> {
   late final WebViewController _controller;
 
   @override
@@ -57,7 +57,8 @@ Page resource error:
           ''');
           },
           onNavigationRequest: (NavigationRequest request) {
-            if (request.url.startsWith('7497121.netlify.app')) {
+            if (request.url.startsWith(
+                'https://www.youtube.com/channel/UCDqtgISIh4pWSv2wFWk9ZKw')) {
               debugPrint('blocking navigation to ${request.url}');
               return NavigationDecision.prevent;
             }
@@ -80,7 +81,8 @@ Page resource error:
           );
         },
       )
-      ..loadRequest(Uri.parse('https://7497121.netlify.app'));
+      ..loadRequest(Uri.parse(
+          'https://www.youtube.com/channel/UCDqtgISIh4pWSv2wFWk9ZKw'));
 
     // #docregion platform_features
     if (controller.platform is AndroidWebViewController) {
@@ -101,7 +103,7 @@ Page resource error:
         appBar: AppBar(
           backgroundColor: Color.fromARGB(255, 0, 0, 0),
           title: const Text(
-            'WebPage',
+            'Videos',
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
           // This drop down menu demonstrates that Flutter widgets can be shown over the web view.

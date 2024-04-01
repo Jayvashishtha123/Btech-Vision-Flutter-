@@ -1,7 +1,5 @@
-import 'package:btech_vision/Auth/login_page.dart';
 import 'package:btech_vision/firebase_auth_services.dart';
 import 'package:btech_vision/form_container_widget.dart';
-
 import 'package:btech_vision/toast.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -16,9 +14,9 @@ class SignUpPage extends StatefulWidget {
 class _SignUpPageState extends State<SignUpPage> {
   final FirebaseAuthService _auth = FirebaseAuthService();
 
-  TextEditingController _usernameController = TextEditingController();
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   bool isSigningUp = false;
 
@@ -36,7 +34,7 @@ class _SignUpPageState extends State<SignUpPage> {
       appBar: AppBar(
         backgroundColor: Colors.black,
         automaticallyImplyLeading: false,
-        title: Center(
+        title: const Center(
           child: Text(
             "Btech Vision",
             style: TextStyle(fontFamily: 'pacifico', fontSize: 30),
@@ -49,14 +47,14 @@ class _SignUpPageState extends State<SignUpPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
+              const Text(
                 "Sign Up",
                 style: TextStyle(
                     fontSize: 25,
                     fontWeight: FontWeight.bold,
                     fontFamily: 'seasrn'),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               Container(
@@ -70,14 +68,14 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                         width: 2),
                     borderRadius: BorderRadius.circular(10),
-                    color: Color.fromARGB(255, 255, 255, 255)),
+                    color: const Color.fromARGB(255, 255, 255, 255)),
                 child: FormContainerWidget(
                   controller: _usernameController,
                   hintText: "Username",
                   isPasswordField: false,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Container(
@@ -91,14 +89,14 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                         width: 2),
                     borderRadius: BorderRadius.circular(10),
-                    color: Color.fromARGB(255, 255, 255, 255)),
+                    color: const Color.fromARGB(255, 255, 255, 255)),
                 child: FormContainerWidget(
                   controller: _emailController,
                   hintText: "Email",
                   isPasswordField: false,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Container(
@@ -112,14 +110,14 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                         width: 2),
                     borderRadius: BorderRadius.circular(10),
-                    color: Color.fromARGB(255, 255, 255, 255)),
+                    color: const Color.fromARGB(255, 255, 255, 255)),
                 child: FormContainerWidget(
                   controller: _passwordController,
                   hintText: "Password",
                   isPasswordField: true,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               GestureDetector(
@@ -135,10 +133,10 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                   child: Center(
                       child: isSigningUp
-                          ? CircularProgressIndicator(
+                          ? const CircularProgressIndicator(
                               color: Colors.white,
                             )
-                          : Text(
+                          : const Text(
                               "Sign Up",
                               style: TextStyle(
                                   color: Colors.white,
@@ -146,33 +144,28 @@ class _SignUpPageState extends State<SignUpPage> {
                             )),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Already have an account?"),
-                  SizedBox(
+                  const Text("Already have an account?"),
+                  const SizedBox(
                     width: 5,
                   ),
                   GestureDetector(
                       onTap: () {
-                        Navigator.pushAndRemoveUntil(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => LoginPage()),
-                            (route) => false);
+                        Navigator.pushNamed(context, "/login");
                       },
-                      child: Text(
+                      child: const Text(
                         "Login",
                         style: TextStyle(
-                            color: const Color.fromARGB(255, 0, 140, 255),
+                            color: Color.fromARGB(255, 0, 140, 255),
                             fontWeight: FontWeight.bold),
                       ))
                 ],
               ),
-              // Text(_usernameController.text)
             ],
           ),
         ),
@@ -185,7 +178,6 @@ class _SignUpPageState extends State<SignUpPage> {
       isSigningUp = true;
     });
 
-    String username = _usernameController.text;
     String email = _emailController.text;
     String password = _passwordController.text;
 
@@ -195,12 +187,13 @@ class _SignUpPageState extends State<SignUpPage> {
       isSigningUp = false;
     });
     if (user != null) {
-      AlertDialog(
+      const AlertDialog(
         title: Text('Login Successful'),
         content: Text('Welcome! You are now logged in.'),
       );
       String name = _usernameController.text;
       showToast(message: "$name is successfully Signed in");
+      // ignore: use_build_context_synchronously
       Navigator.pushNamed(context, "/home");
     } else {
       showToast(message: "Some error happend");

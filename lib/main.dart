@@ -19,6 +19,7 @@ import 'package:btech_vision/screens/about_us.dart';
 import 'package:btech_vision/screens/cse.dart';
 import 'package:btech_vision/screens/home_screen.dart';
 import 'package:btech_vision/task/task_page.dart';
+import 'package:btech_vision/you_tube/you_tube.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -47,27 +48,28 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Btech Vision',
         routes: {
-          '/': (context) => AuthenticationWrapper(),
-          '/login': (context) => LoginPage(),
-          '/signUp': (context) => SignUpPage(),
-          '/home': (context) => HomeScreen(),
+          '/': (context) => const AuthenticationWrapper(),
+          '/login': (context) => const LoginPage(),
+          '/signUp': (context) => const SignUpPage(),
+          '/home': (context) => const HomeScreen(),
           '/drawer': (context) => MyDrawer(),
           '/quizApp2': (context) => QuizApp2(),
-          '/courses': (context) => Courses(),
-          '/AboutUs': (context) => AboutUs(),
-          '/Rate_us': (context) => Rate_us(),
-          '/about_cse': (context) => about_cse(),
-          '/about_ece': (context) => about_ece(),
-          '/about_ee': (context) => about_ee(),
-          '/about_civil': (context) => about_civil(),
-          '/about_mechanical': (context) => about_mechanical(),
-          '/Academics': (context) => Academics(),
+          '/courses': (context) => const Courses(),
+          '/AboutUs': (context) => const AboutUs(),
+          '/Rate_us': (context) => const Rate_us(),
+          '/about_cse': (context) => const about_cse(),
+          '/about_ece': (context) => const about_ece(),
+          '/about_ee': (context) => const about_ee(),
+          '/about_civil': (context) => const about_civil(),
+          '/about_mechanical': (context) => const about_mechanical(),
+          '/Academics': (context) => const Academics(),
           '/syllabus': (context) => syllabus(),
           '/BTechTaskPage': (context) => BTechTaskPage(),
           '/GuessGame': (context) => GuessGame(),
           '/cse': (context) => cse(),
-          '/WebViewExample': (context) => WebViewExample(),
+          '/WebViewExample': (context) => const WebViewExample(),
           '/PdfViewerPage': (context) => PdfViewerPage(),
+          '/You_tube': (context) => const You_tube(),
         });
   }
 }

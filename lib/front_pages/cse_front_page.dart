@@ -1,5 +1,3 @@
-import 'package:btech_vision/screens/cse.dart';
-import 'package:btech_vision/screens/home_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -18,7 +16,7 @@ class about_cse extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
-        body: Container(
+        body: SizedBox(
           width: screenSize.width,
           height: screenSize.height,
           child: Stack(
@@ -28,7 +26,7 @@ class about_cse extends StatelessWidget {
                 child: Container(
                   width: screenSize.width,
                   height: screenSize.height,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Color.fromARGB(255, 35, 35, 36),
                   ),
                 ),
@@ -36,7 +34,7 @@ class about_cse extends StatelessWidget {
               Container(
                 width: screenSize.width,
                 height: screenSize.height * .3,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color.fromARGB(255, 0, 0, 0),
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(50),
@@ -63,7 +61,7 @@ class about_cse extends StatelessWidget {
               Positioned(
                 top: 80,
                 left: screenSize.width * .4,
-                child: Text(
+                child: const Text(
                   "CSE",
                   style: TextStyle(
                     color: Color.fromARGB(255, 255, 255, 255),
@@ -72,7 +70,7 @@ class about_cse extends StatelessWidget {
                   ),
                 ),
               ),
-              Positioned(
+              const Positioned(
                 top: 150,
                 left: 30,
                 child: FittedBox(
@@ -92,7 +90,7 @@ class about_cse extends StatelessWidget {
                   child: Center(
                     child: Container(
                       width: screenSize.width * .98,
-                      child: Text(
+                      child: const Text(
                         'Computer Science and Engineering is a discipline that deals with the theory and practice of computation and the design of computer systems. It involves understanding the principles of computer systems, programming languages, and algorithms.',
                         style: TextStyle(
                           color: Colors.white,
@@ -119,7 +117,7 @@ class about_cse extends StatelessWidget {
                       child: InkWell(
                         onTap: () => launchURL(
                             'https://en.wikipedia.org/wiki/Computer_science_and_engineering'),
-                        child: Text(
+                        child: const Text(
                           "Learn More",
                           style: TextStyle(
                             color: Colors.white,
@@ -130,7 +128,7 @@ class about_cse extends StatelessWidget {
                     ),
                     SizedBox(height: 10),
                     Container(
-                      child: Text(
+                      child: const Text(
                         "(Wikipedia link)",
                         style: TextStyle(
                           color: Colors.white,
@@ -153,7 +151,7 @@ class about_cse extends StatelessWidget {
                         border: Border.all(
                           color: const Color.fromARGB(255, 0, 0, 0),
                         ),
-                        borderRadius: BorderRadius.only(
+                        borderRadius: const BorderRadius.only(
                           bottomRight: Radius.circular(30),
                           topLeft: Radius.circular(30),
                         ),
@@ -161,7 +159,7 @@ class about_cse extends StatelessWidget {
                       ),
                       child: InkWell(
                         onTap: () => Navigator.pushNamed(context, '/cse'),
-                        child: ListTile(
+                        child: const ListTile(
                           titleAlignment: ListTileTitleAlignment.threeLine,
                           minLeadingWidth: 60,
                           leading: Icon(

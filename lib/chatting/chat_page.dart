@@ -1,16 +1,13 @@
-import 'package:btech_vision/Auth/login_page.dart';
 import 'package:btech_vision/chatting/functions.dart';
 import 'package:btech_vision/chatting/search_button.dart';
-import 'package:btech_vision/drawer.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+// ignore: depend_on_referenced_packages
 import 'package:intl/intl.dart';
 
-// Specify the host email
 const String hostEmail = 'jayvashishtha.agra@gmail.com';
 
-// Sign up
 Future<void> signUp(String email, String password) async {
   try {
     await FirebaseAuth.instance.createUserWithEmailAndPassword(
@@ -22,7 +19,6 @@ Future<void> signUp(String email, String password) async {
   }
 }
 
-// Sign in
 Future<void> signIn(String email, String password) async {
   try {
     await FirebaseAuth.instance.signInWithEmailAndPassword(
@@ -34,18 +30,18 @@ Future<void> signIn(String email, String password) async {
   }
 }
 
-// Sign out
 Future<void> signOut() async {
   await FirebaseAuth.instance.signOut();
 }
 
-// Get current user
 User? getCurrentUser() {
   return FirebaseAuth.instance.currentUser;
 }
 
 class ChatScreen extends StatelessWidget {
   final TextEditingController messageController = TextEditingController();
+
+  ChatScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +53,7 @@ class ChatScreen extends StatelessWidget {
               Navigator.pushNamed(context, '/drawer');
             },
             icon: Icon(Icons.arrow_back_sharp)),
-        title: Text(
+        title: const Text(
           'Chat with us!',
           style: TextStyle(fontSize: 20),
         ),
@@ -69,7 +65,6 @@ class ChatScreen extends StatelessWidget {
                 context: context,
                 delegate: MessageSearchDelegate(),
               );
-              // Implement search functionality
             },
           ),
         ],
@@ -81,35 +76,28 @@ class ChatScreen extends StatelessWidget {
               stream: getMessages(),
               builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Center(child: CircularProgressIndicator());
+                  return const Center(child: CircularProgressIndicator());
                 }
 
                 if (snapshot.hasError) {
                   return Text('Error: ${snapshot.error}');
                 }
 
-                // Display the messages
                 return ListView.builder(
                   itemCount: snapshot.data!.docs.length,
                   itemBuilder: (context, index) {
                     var message = snapshot.data!.docs[index].data()
                         as Map<String, dynamic>;
 
-                    // Extracting username from email
                     String? email = message['sender'];
                     String? username = email?.split('@')[0];
 
-                    // Extracting timestamp and formatting it
                     Timestamp? timestamp = message['timestamp'];
                     DateTime? dateTime = timestamp?.toDate();
-                    //String time = DateFormat('HH:mm').format(dateTime);
                     String time = dateTime != null
                         ? DateFormat('HH:mm').format(dateTime)
                         : 'N/A';
 
-                    // Check if the message is sent by the current user or host
-                    bool isCurrentUser =
-                        message['sender'] == getCurrentUser()?.email;
                     bool isHost = message['sender'] == "jayvashishtha.agra";
 
                     return Padding(
@@ -124,17 +112,15 @@ class ChatScreen extends StatelessWidget {
                             color: isHost
                                 ? Color(0xFFDCF8C6)
                                 : (isHost
-                                    ? Color(
-                                        0xFFDCF8C6) // Use a different color for host
-                                    : Color(0xFFFFFFFF)),
+                                    ? const Color(0xFFDCF8C6)
+                                    : const Color(0xFFFFFFFF)),
                             borderRadius: BorderRadius.circular(8),
                             border: Border.all(
                               color: isHost
-                                  ? Color(0xFF128C7E)
+                                  ? const Color(0xFF128C7E)
                                   : (isHost
-                                      ? Color(
-                                          0xFF128C7E) // Use a different color for host
-                                      : Color(0xFF075E54)),
+                                      ? const Color(0xFF128C7E)
+                                      : const Color(0xFF075E54)),
                               width: 0.5,
                             ),
                           ),
@@ -143,12 +129,12 @@ class ChatScreen extends StatelessWidget {
                             children: [
                               Text(
                                 '${username ?? 'Unknown User'} - $time',
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontSize: 12,
                                   color: Colors.grey,
                                 ),
                               ),
-                              SizedBox(height: 5),
+                              const SizedBox(height: 5),
                               Text(
                                 message['text'],
                                 style: TextStyle(fontSize: 16),
@@ -172,16 +158,17 @@ class ChatScreen extends StatelessWidget {
                     controller: messageController,
                     decoration: InputDecoration(
                       hintText: 'Type a message...',
-                      contentPadding: EdgeInsets.all(16),
+                      contentPadding: const EdgeInsets.all(16),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20),
-                        borderSide: BorderSide(color: Color(0xFF075E54)),
+                        borderSide: const BorderSide(color: Color(0xFF075E54)),
                       ),
                     ),
                   ),
                 ),
                 IconButton(
-                  icon: Icon(Icons.send, size: 32, color: Color(0xFF075E54)),
+                  icon: const Icon(Icons.send,
+                      size: 32, color: Color(0xFF075E54)),
                   onPressed: () {
                     if (messageController.text.isNotEmpty) {
                       sendMessage(
@@ -194,14 +181,14 @@ class ChatScreen extends StatelessWidget {
                         context: context,
                         builder: (context) {
                           return AlertDialog(
-                            titleTextStyle: TextStyle(
+                            titleTextStyle: const TextStyle(
                               color: Colors.red,
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
                             ),
                             backgroundColor: Colors.yellow,
                             title: Text('Error'),
-                            content: Text(
+                            content: const Text(
                               'First Login Bro....',
                               style: TextStyle(
                                 color: Colors.black,
@@ -213,7 +200,7 @@ class ChatScreen extends StatelessWidget {
                                 onPressed: () {
                                   Navigator.of(context).pop();
                                 },
-                                child: Text(
+                                child: const Text(
                                   'OK',
                                   style: TextStyle(fontWeight: FontWeight.bold),
                                 ),
@@ -227,14 +214,14 @@ class ChatScreen extends StatelessWidget {
                         context: context,
                         builder: (context) {
                           return AlertDialog(
-                            titleTextStyle: TextStyle(
+                            titleTextStyle: const TextStyle(
                               color: Colors.red,
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
                             ),
                             backgroundColor: Colors.yellow,
                             title: Text('Error'),
-                            content: Text(
+                            content: const Text(
                               'Oops! Please write something Bro....',
                               style: TextStyle(
                                 color: Colors.black,
@@ -246,7 +233,7 @@ class ChatScreen extends StatelessWidget {
                                 onPressed: () {
                                   Navigator.of(context).pop();
                                 },
-                                child: Text(
+                                child: const Text(
                                   'OK',
                                   style: TextStyle(fontWeight: FontWeight.bold),
                                 ),
